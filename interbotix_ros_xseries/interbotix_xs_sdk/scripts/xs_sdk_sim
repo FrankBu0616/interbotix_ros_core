@@ -195,12 +195,12 @@ class InterbotixRobotXS(object):
         mode = motor["mode"]
         prof_vel = motor["profile_velocity"]
         with self.cmd_mutex:
-            # create a trajectory of 'waypoints' to execute if motion should take longer than 'self.move_thresh' milliseconds
-            if "position" in mode and prof_vel > self.move_thresh:
-                num_itr = int(round(prof_vel / 1000.0 * self.timer_hz + 1))
-                self.commands[name] = list(np.linspace(command, self.joint_states.position[self.js_index_map[name]], num_itr))
-            else:
-                self.commands[name] = command
+#             # create a trajectory of 'waypoints' to execute if motion should take longer than 'self.move_thresh' milliseconds
+#             if "position" in mode and prof_vel > self.move_thresh:
+#                 num_itr = int(round(prof_vel / 1000.0 * self.timer_hz + 1))
+#                 self.commands[name] = list(np.linspace(command, self.joint_states.position[self.js_index_map[name]], num_itr))
+#             else:
+              self.commands[name] = command
 
     ### @brief Converts a desired linear distance between two gripper fingers into an angular position
     ### @param name - name of the gripper servo to command
